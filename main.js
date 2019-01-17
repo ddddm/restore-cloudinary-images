@@ -29,8 +29,17 @@ async function main() {
         )
 
         while(currentIndex < task ) {
+            const entry = list[currentIndex];
+
+            if(!entry.imageId) {
+                console.log(`image ${entry.imageId} skipped`)
+
+                list[currentIndex].status = 'skipped';
+
+                currentIndex++;
+            }
+
             try {
-                const entry = list[currentIndex];
                 const restorationResult = await restore(entry.imageId);
                 
                 list[currentIndex].response = restorationResult;
@@ -58,7 +67,7 @@ async function main() {
                 console.log(`image ${list[currentIndex].imageId} failed`)
             }
 
-            await sleep(1000);
+            await sleep(50);
         }
 
     } catch (error) {
