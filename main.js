@@ -1,9 +1,13 @@
 const cloudinary = require('cloudinary');
 
 const restore = require('./restore');
-const cloudinaryConfig = require('./config');
+const config = require('./config');
 
-cloudinary.config(cloudinaryConfig);
+cloudinary.config({
+    cloud_name: config.cloud_name,
+    api_key: config.api_key,
+    api_secret: config.api_secret,
+});
 
 const image = 'fl2dldphdzdjhnr98gv4';
 
@@ -19,4 +23,4 @@ async function main() {
 
 }
 
-main()
+main();
