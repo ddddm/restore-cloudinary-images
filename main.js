@@ -37,6 +37,7 @@ async function main() {
                 list[currentIndex].status = 'skipped';
 
                 currentIndex++;
+                return;
             }
 
             try {
@@ -65,6 +66,7 @@ async function main() {
                 )
 
                 console.log(`image ${list[currentIndex].imageId} failed`)
+                console.log(error)
             }
 
             await sleep(50);
