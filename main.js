@@ -37,7 +37,7 @@ async function main() {
                 list[currentIndex].status = 'skipped';
 
                 currentIndex++;
-                return;
+                continue;
             }
 
             try {
